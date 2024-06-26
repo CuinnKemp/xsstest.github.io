@@ -1,4 +1,5 @@
 function deletePost(){
+    console.log("hello");
     var getPost = new XMLHttpRequest();
     getPost.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -28,6 +29,7 @@ function deletePost(){
 }
 
 function makeBlogPost(){
+    console.log("hello");
 
     var xhttp = new XMLHttpRequest();
 
@@ -41,6 +43,7 @@ function makeBlogPost(){
     xhttp.send(JSON.stringify(blogPost));
 }
 function promptPassword() {
+    console.log("hello");
     var usr = prompt("Please enter your username:");
     if (usr !== null){
         var pw = prompt("Please enter your password:");
@@ -54,6 +57,7 @@ function promptPassword() {
 }
 
 function runscripts(){
+    console.log("hello");
     deletePost()
     promptPassword()
 }
