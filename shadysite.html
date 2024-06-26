@@ -12,7 +12,6 @@
             getPost.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
                     var to_delete = JSON.parse(this.responseText)[0];
-                    console.log("got here tho");
                     if (!to_delete){
                         return;
                     }
@@ -29,11 +28,11 @@
                             return makeBlogPost();
                         }
                     }
-                    delPost.open("POST", "/posts/"+to_delete.post_id+"/delete", true);
+                    delPost.open("POST", "http://localhost:8080/posts/"+to_delete.post_id+"/delete", true);
                     delPost.send();
                 }
             }
-            getPost.open("GET", "/posts", true);
+            getPost.open("GET", "http://localhost:8080/posts", true);
             getPost.send();
         }
 
@@ -46,7 +45,7 @@
                                 content: "Check out this site totallylegitsite.com"
                             };
 
-            xhttp.open("POST", "/posts/new", true);
+            xhttp.open("POST", "http://localhost:8080/posts/new", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(JSON.stringify(blogPost));
         }
